@@ -8,7 +8,7 @@
 
 An unofficial library for downloading the [CPU Mega List](https://cpubenchmark.net/CPU_mega_page.html) dataset by [PassMark Software](https://passmark.com).
 
-Spot any bugs? Report them [here](https://github.com/elliotwutingfeng/cpubenchmarknet/issues)
+Spot any bugs? [Report them](https://github.com/elliotwutingfeng/cpubenchmarknet/issues).
 
 **Disclaimer:** _This project is not sponsored, endorsed, or otherwise affiliated with PassMark Software._
 
