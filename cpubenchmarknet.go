@@ -11,12 +11,24 @@ import (
 	"time"
 )
 
+const userAgent string = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36"
+
 // extractCookie visits a URL, extracts
 // a cookie, and returns its value if it exists.
 func extractCookie(url string, cookieName string) (string, error) {
-	resp, err := http.Get(url)
+	req, err := http.NewRequest("GET", url, nil)
+	req.Header.Set("User-Agent", userAgent)
 	if err != nil {
 		return "", err
+	}
+	var client http.Client
+	resp, err := client.Do(req)
+	if err != nil {
+		return "", err
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		return "", fmt.Errorf("HTTP request failed with status code %d", resp.StatusCode)
 	}
 	for _, cookie := range resp.Cookies() {
 		if cookie.Name == cookieName {
@@ -35,6 +47,9 @@ func getJSONString(req *http.Request) (string, error) {
 		return "", err
 	}
 	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		return "", fmt.Errorf("HTTP request failed with status code %d", resp.StatusCode)
+	}
 
 	b, err := io.ReadAll(resp.Body)
 	if err != nil {
@@ -57,6 +72,7 @@ func GetCPUMegaList() (string, error) {
 	timeNowMilli := time.Now().UnixMilli()
 	req, err := http.NewRequest("GET", fmt.Sprintf("https://cpubenchmark.net/data/?_=%d", timeNowMilli), nil)
 	req.Header.Set("X-Requested-With", "XMLHttpRequest")
+	req.Header.Set("User-Agent", userAgent)
 	req.AddCookie(&http.Cookie{
 		Name:  cookieName,
 		Value: cookieValue,

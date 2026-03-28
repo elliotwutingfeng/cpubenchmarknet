@@ -13,7 +13,7 @@ Spot any bugs? [Report them](https://github.com/elliotwutingfeng/cpubenchmarknet
 
 ## Requirements
 
-- Go 1.20
+- Go 1.26
 
 ## Basic Example
 
