@@ -1,7 +1,6 @@
 # Unofficial cpubenchmark.net dataset utility
 
 [![Go Reference](https://img.shields.io/badge/go-reference-blue?logo=go&logoColor=white&style=for-the-badge)](https://pkg.go.dev/github.com/elliotwutingfeng/cpubenchmarknet)
-[![Go Report Card](https://goreportcard.com/badge/github.com/elliotwutingfeng/cpubenchmarknet?style=for-the-badge)](https://goreportcard.com/report/github.com/elliotwutingfeng/cpubenchmarknet)
 [![Coveralls](https://img.shields.io/coverallsCoverage/github/elliotwutingfeng/cpubenchmarknet?logo=coveralls&style=for-the-badge)](https://coveralls.io/github/elliotwutingfeng/cpubenchmarknet?branch=main)
 [![License](https://img.shields.io/badge/LICENSE-MIT-GREEN?style=for-the-badge)](LICENSE)
 
